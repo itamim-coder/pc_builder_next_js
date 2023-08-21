@@ -1,37 +1,56 @@
-import React, { useState } from "react";
-import type { RadioChangeEvent } from "antd";
-import { Carousel, Radio } from "antd";
-import type { DotPosition } from "antd/es/carousel";
+import React from "react";
+import { Carousel } from "antd";
 
 const contentStyle: React.CSSProperties = {
-  height: "h-screen",
+  height: "460px",
   color: "#fff",
-  lineHeight: "h-screen",
+  lineHeight: "460px",
   textAlign: "center",
-  background: "#364d79",
+  background: "#B2BEB5",
 };
 
-const CarouselComponent: React.FC = () => {
-  const [dotPosition, setDotPosition] = useState<DotPosition>("right");
-
-  return (
-    <>
-      <Carousel autoplay dotPosition={dotPosition}>
-        <div className="h-screen hero-overlay bg-opacity-60">
-          <img className="w-full" src="https://cdn.w600.comps.canstockphoto.com/pages-of-holy-koran-rosary-stock-photograph_csp14039595.jpg" alt="" />
-        </div>
-        <div className="h-screen">
-        <img className="w-full" src="https://cdn.w600.comps.canstockphoto.com/pages-of-holy-koran-rosary-stock-photograph_csp14039595.jpg" alt="" />
-        </div>
-        <div className="h-screen">
-        <img className="w-full" src="https://cdn.w600.comps.canstockphoto.com/pages-of-holy-koran-rosary-stock-photograph_csp14039595.jpg" alt="" />
-        </div>
-        <div className="h-screen">
-        <img className="w-full" src="https://cdn.w600.comps.canstockphoto.com/pages-of-holy-koran-rosary-stock-photograph_csp14039595.jpg" alt="" />
-        </div>
-      </Carousel>
-    </>
-  );
-};
+const CarouselComponent: React.FC = () => (
+  <Carousel autoplay effect="fade">
+    <div>
+      <div style={contentStyle} className="lg:flex lg:justify-between ">
+        <h1 className="text-black text-3xl flex items-center font-bold">Unleash Your Computing Potential. Discover the Perfect PC for You.</h1>
+        <img className="w-1/2 opacity-90 "
+          src="https://templatekits.themewarrior.com/kompi/wp-content/uploads/sites/69/2022/11/post-dummy-1-768x407.jpg"
+          alt=""
+        />
+      </div>
+    </div>
+    <div>
+      <div style={contentStyle} className="flex justify-between ">
+        <h1 className="text-black text-3xl flex items-center font-bold">Elevate Your Experience. Find Your Ultimate PC Companion Today</h1>
+        <img className="w-1/2 opacity-90"
+          src="https://templatekits.themewarrior.com/kompi/wp-content/uploads/sites/69/2022/11/post-dummy-2-768x407.jpg"
+          alt=""
+        />
+      </div>
+    </div>
+    <div>
+      <div style={contentStyle} className="flex justify-between ">
+        <h1 className="text-black text-3xl flex items-center font-bold" >Power and Performance in Every Byte. Explore Our Range of PCs.</h1>
+        <img className="w-1/2 opacity-90"
+          src="https://templatekits.themewarrior.com/kompi/wp-content/uploads/sites/69/2022/11/post-dummy-768x407.jpg"
+          alt=""
+        />
+      </div>
+    </div>
+    <div>
+      <div style={contentStyle} className="flex justify-between ">
+        <h1 className="text-black text-3xl flex items-center font-bold">Your Dream PC Awaits. Embrace Innovation and Performance with Us.</h1>
+        <img className="w-1/2 opacity-90"
+          src="https://templatekits.themewarrior.com/kompi/wp-content/uploads/sites/69/2022/11/post-dummy-2-768x407.jpg"
+          alt=""
+        />
+      </div>
+    </div>
+  
+   
+ 
+  </Carousel>
+);
 
 export default CarouselComponent;

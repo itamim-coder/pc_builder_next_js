@@ -16,7 +16,9 @@ const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
   return (
     <Layout className="layout">
       <Header className="flex justify-between">
-        <div className="">aa</div>
+        <div className="text-white"><Link href="/">
+        PC Store
+        </Link></div>
         <div className="">
           <DropDown ></DropDown>
           <Link href="pc-builder">
@@ -29,7 +31,7 @@ const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
         //  padding: "0 50px", 
          background: colorBgContainer }}>
         <div
-          className="site-layout-content h-screen"
+          className="site-layout-content"
           // style={{ background: colorBgContainer }}
         >
           {children}

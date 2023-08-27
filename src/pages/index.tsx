@@ -4,6 +4,7 @@ import CustomSlider from "@/components/Utils/CustomSlider";
 import FeaturedCategories from "@/components/Utils/FeaturedCategories";
 import FeaturedProducts from "@/components/Utils/FeaturedProducts";
 import React from "react";
+import ProductsPage from "./products";
 
 interface Category {
   id: number;
@@ -17,11 +18,11 @@ interface HomeProps {
 }
 
 const Home: React.FC<HomeProps> = ({ categories, products }) => {
- 
   return (
     <div>
       <CarouselComponent />
       <FeaturedProducts products={products} />
+      {/* <ProductsPage products={products}></ProductsPage> */}
       <CustomSlider></CustomSlider>
       <FeaturedCategories categories={categories} />
     </div>

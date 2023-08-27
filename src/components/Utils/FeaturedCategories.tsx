@@ -19,7 +19,8 @@ const FeaturedCategories: React.FC<FeaturedCategoriesProps> = ({
     {
       (console.log(categories),
       categories?.map((category) => (
-        <Link key={category.id} href={`/products/${category.id}`}>
+      
+        <Link key={category.id} href={`filterproducts/${(category.id)}`}>
           <div>
             <Card
               hoverable={true}

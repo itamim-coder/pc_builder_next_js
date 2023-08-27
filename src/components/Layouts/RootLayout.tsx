@@ -21,7 +21,7 @@ const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
         </Link></div>
         <div className="">
           <DropDown ></DropDown>
-          <Link href="pc-builder">
+          <Link href="/pc-builder">
             {" "}
             <button className="bg-sky-700 px-5 text-white">PC BUILDER</button>
           </Link>

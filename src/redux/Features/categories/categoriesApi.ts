@@ -1,7 +1,7 @@
 import { api } from "@/redux/Api/apiSlice";
 
 const categoriesApi = api.injectEndpoints({
-  endpoints: (builder) => ({
+  endpoints: (builder: { query: (arg0: { query: () => string; }) => any; }) => ({
     getCategories: builder.query({
       query: () => "/categories",
     }),

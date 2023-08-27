@@ -2,15 +2,10 @@ import RootLayout from "@/components/Layouts/RootLayout";
 import React from "react";
 import { Card } from "antd";
 import Link from "next/link";
-import { useGetCategoriesQuery } from "@/redux/Features/categories/categoriesApi";
-import { useDispatch, useSelector } from "react-redux";
-import { selectCategory } from "@/redux/Features/categories/categoriesSlice";
+
+import { useSelector } from "react-redux";
 
 const PcBuilderPage = ({ data }) => {
-  // const handleAddCategory = (data) => {
-  //   dispatch(selectCategory(data));
-  // };
-  // const { data, isLoading, isError, error } = useGetCategoriesQuery(undefined);
   const selectedComponents = useSelector(
     (state) => state.pcBuilder.addedComponents
   );

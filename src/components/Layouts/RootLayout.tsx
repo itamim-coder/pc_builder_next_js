@@ -16,20 +16,23 @@ const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
   return (
     <Layout className="layout">
       <Header className="flex justify-between">
-        <div className="text-white"><Link href="/">
-        PC Store
-        </Link></div>
+        <div className="text-white">
+          <Link href="/">PC Store</Link>
+        </div>
         <div className="">
-          <DropDown ></DropDown>
+          <DropDown></DropDown>
           <Link href="/pc-builder">
             {" "}
             <button className="bg-sky-700 px-5 text-white">PC BUILDER</button>
           </Link>
         </div>
       </Header>
-      <Content style={{
-        //  padding: "0 50px", 
-         background: colorBgContainer }}>
+      <Content
+        style={{
+          //  padding: "0 50px",
+          background: colorBgContainer,
+        }}
+      >
         <div
           className="site-layout-content"
           // style={{ background: colorBgContainer }}

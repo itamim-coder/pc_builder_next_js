@@ -21,10 +21,12 @@ const Home: React.FC<HomeProps> = ({ categories, products }) => {
   return (
     <div>
       <CarouselComponent />
-      <FeaturedProducts products={products} />
-      {/* <ProductsPage products={products}></ProductsPage> */}
-      <CustomSlider></CustomSlider>
-      <FeaturedCategories categories={categories} />
+      <div className="m-5">
+        <FeaturedProducts products={products} />
+        {/* <ProductsPage products={products}></ProductsPage> */}
+     
+        <FeaturedCategories categories={categories} />
+      </div>
     </div>
   );
 };

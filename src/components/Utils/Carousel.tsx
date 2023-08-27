@@ -6,7 +6,7 @@ const contentStyle: React.CSSProperties = {
   color: "#fff",
   lineHeight: "460px",
   textAlign: "center",
-  background: "#B2BEB5",
+  background: "#F5F6FA",
 };
 
 const CarouselComponent: React.FC = () => (
@@ -14,7 +14,7 @@ const CarouselComponent: React.FC = () => (
     <div>
       <div style={contentStyle} className="lg:flex lg:justify-between ">
         <h1 className="text-black text-3xl flex items-center font-bold">Unleash Your Computing Potential. Discover the Perfect PC for You.</h1>
-        <img className="w-1/2 opacity-90 "
+        <img className="w-1/2 opacity-90 cover"
           src="https://templatekits.themewarrior.com/kompi/wp-content/uploads/sites/69/2022/11/post-dummy-1-768x407.jpg"
           alt=""
         />

@@ -14,19 +14,7 @@ const FilterProducts = ({ product }) => {
 
         <div className="grid h-screen gap-4 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 p-4">
           {product?.slice(0, 6)?.map((dt) => (
-            <Link href={`/products/${product?._id}`}>
-              {/* <Card
-            hoverable
-            style={{ width: 240 }}
-            cover={
-              <img
-                alt="example"
-                src={product?.image}
-              />
-            }
-          >
-            <Meta title={product?.title} description="www.instagram.com" />
-          </Card> */}
+            <Link href={`/products/${dt?._id}`}>
               <div className="flex max-w-md overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800">
                 <div className="w-1/3 bg-cover">
                   <img alt="example" src={dt?.image} />
@@ -88,7 +76,7 @@ FilterProducts.getLayout = function getLayout(page: React.ReactNode) {
 };
 
 export const getStaticPaths = async () => {
-  const res = await fetch("http://localhost:8000/products");
+  const res = await fetch("https://pc-builder-backend-1fi4.onrender.com/products");
   const products = await res.json();
 
   const paths = products?.map((product: { categoryId: any }) => ({
@@ -102,7 +90,9 @@ export async function getStaticProps({ params }) {
   // params contains the post `id`.
 
   // If the route is like /posts/1, then params.id is 1
-  const res = await fetch(`http://localhost:8000/filterproducts/${params.id}`);
+  const res = await fetch(
+    `https://pc-builder-backend-1fi4.onrender.com/filterproducts/${params.id}`
+  );
   const product = await res.json();
   console.log(product);
   // Pass post data to the page via props

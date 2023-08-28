@@ -11,45 +11,62 @@ const PcBuilderPage = ({ data }) => {
   );
   console.log(selectedComponents);
   return (
-    <div className="h-screen">
+    <div className="">
       <div className="lg:mx-10 mx-5">
         {data?.map((dt) => (
           <>
-            <div>
+            <div className="mt-5">
               <Card type="inner">
-                <div className="flex justify-between">
-                  {dt.title}
-                  <div className="flex flex-wrap">
-                    {selectedComponents &&
-                      selectedComponents[dt?.title]?.map((component) => (
-                        <Card
-                          key={component.id}
-                          title={component.title}
-                          extra={`$${component.price}`}
-                          style={{ width: 300, margin: "16px" }}
-                        >
-                          {/* <img src={component.image} alt={component.title} /> */}
-                          {/* Add more information as needed */}
-                        </Card>
-                      ))}
+                <div className="">
+                  <div className="grid grid-cols-3 gap-4">
+                    <div className="">
+                      <img className="w-10" src={dt.image} alt="" />
+                      <p className=" text-sm">{dt.title}</p>
+                    </div>
+                    <div className=" grid-cols-2">
+                      {selectedComponents &&
+                        selectedComponents[dt?.title]?.map((component) => (
+                          <div>
+                            <img
+                              className="w-10"
+                              src={component.image}
+                              alt=""
+                            />
+                            <p className=" text-sm">{component.title}</p>
+                          </div>
+                        ))}
+                    </div>
+                    <div className="flex justify-end">
+                      {!selectedComponents[dt.title] ? (
+                        <Link href={`/pc-builder/select-component/${dt.id}`}>
+                          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+                            Choose
+                          </button>
+                        </Link>
+                      ) : (
+                        <div>Component Selected</div>
+                      )}
+                    </div>
                   </div>
-                  {!selectedComponents[dt.title] ? (
-                    <Link href={`/pc-builder/select-component/${dt.id}`}>
-                      <button>Choose</button>
-                    </Link>
-                  ) : (
-                    <div>Component Selected</div>
-                  )}
                 </div>
               </Card>
             </div>
           </>
         ))}
       </div>
+
       {Object.keys(selectedComponents).length >= 5 ? (
-        <button>Build PC</button>
+        <div className="flex justify-center m-5">
+          <button className=" w-80 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+            Build PC
+          </button>
+        </div>
       ) : (
-        <button disabled>Build PC</button>
+        <div className="flex justify-center m-5">
+          <button className=" w-80 bg-blue-500 text-white font-bold py-2 px-4 rounded opacity-50 cursor-not-allowed">
+            Build PC
+          </button>
+        </div>
       )}
     </div>
   );
@@ -63,7 +80,7 @@ PcBuilderPage.getLayout = function getLayout(page: React.ReactNode) {
 
 export async function getServerSideProps() {
   // Fetch data from external API
-  const res = await fetch(`http://localhost:8000/categories`);
+  const res = await fetch(`https://pc-builder-backend-1fi4.onrender.com/categories`);
   const categories = await res.json();
 
   // Pass data to the page via props

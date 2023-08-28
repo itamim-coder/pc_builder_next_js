@@ -1,10 +1,9 @@
 import RootLayout from "@/components/Layouts/RootLayout";
 import CarouselComponent from "@/components/Utils/Carousel";
-import CustomSlider from "@/components/Utils/CustomSlider";
+
 import FeaturedCategories from "@/components/Utils/FeaturedCategories";
 import FeaturedProducts from "@/components/Utils/FeaturedProducts";
 import React from "react";
-import ProductsPage from "./products";
 
 interface Category {
   id: number;
@@ -23,8 +22,7 @@ const Home: React.FC<HomeProps> = ({ categories, products }) => {
       <CarouselComponent />
       <div className="m-5">
         <FeaturedProducts products={products} />
-        {/* <ProductsPage products={products}></ProductsPage> */}
-     
+
         <FeaturedCategories categories={categories} />
       </div>
     </div>
@@ -38,11 +36,10 @@ Home.getLayout = function getLayout(page: React.ReactNode) {
 };
 
 export const getStaticProps = async () => {
-  // const res = await fetch("http://localhost:3000/api/news"); // internal API connected with mongoDB
-  const res = await fetch("http://localhost:8000/categories"); // --> json server
+  const res = await fetch("https://pc-builder-backend-1fi4.onrender.com/categories"); // --> json server
   const data = await res.json();
 
-  const res2 = await fetch("http://localhost:8000/products");
+  const res2 = await fetch("https://pc-builder-backend-1fi4.onrender.com/products");
   const data2 = await res2.json();
 
   // Shuffle the data2 array using a random comparison function

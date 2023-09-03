@@ -2,6 +2,7 @@ import RootLayout from "@/components/Layouts/RootLayout";
 import React from "react";
 import { Card } from "antd";
 import Link from "next/link";
+import toast, { Toaster } from "react-hot-toast";
 
 import { useSelector } from "react-redux";
 
@@ -9,6 +10,7 @@ const PcBuilderPage = ({ data }) => {
   const selectedComponents = useSelector(
     (state) => state.pcBuilder.addedComponents
   );
+  const notify = () => toast("Your Build Is Complete");
   console.log(selectedComponents);
   return (
     <div className="">
@@ -53,10 +55,12 @@ const PcBuilderPage = ({ data }) => {
             </div>
           </>
         ))}
+
+        <Toaster />
       </div>
 
       {Object.keys(selectedComponents).length >= 5 ? (
-        <div className="flex justify-center m-5">
+        <div onClick={notify} className="flex justify-center m-5">
           <button className=" w-80 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
             Build PC
           </button>
@@ -80,7 +84,9 @@ PcBuilderPage.getLayout = function getLayout(page: React.ReactNode) {
 
 export async function getServerSideProps() {
   // Fetch data from external API
-  const res = await fetch(`https://pc-builder-backend-1fi4.onrender.com/categories`);
+  const res = await fetch(
+    `https://pc-builder-backend-1fi4.onrender.com/categories`
+  );
   const categories = await res.json();
 
   // Pass data to the page via props

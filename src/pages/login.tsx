@@ -1,3 +1,4 @@
+import RootLayout from "@/components/Layouts/RootLayout";
 import { signIn } from "next-auth/react";
 import React from "react";
 
@@ -19,3 +20,7 @@ const login = () => {
 };
 
 export default login;
+
+login.getLayout = function getLayout(page: React.ReactNode) {
+  return <RootLayout>{page}</RootLayout>;
+};

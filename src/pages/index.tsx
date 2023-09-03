@@ -36,10 +36,14 @@ Home.getLayout = function getLayout(page: React.ReactNode) {
 };
 
 export const getStaticProps = async () => {
-  const res = await fetch("https://pc-builder-backend-1fi4.onrender.com/categories"); // --> json server
+  const res = await fetch(
+    "https://pc-builder-backend-1fi4.onrender.com/categories"
+  ); // --> json server
   const data = await res.json();
 
-  const res2 = await fetch("https://pc-builder-backend-1fi4.onrender.com/products");
+  const res2 = await fetch(
+    "https://pc-builder-backend-1fi4.onrender.com/products"
+  );
   const data2 = await res2.json();
 
   // Shuffle the data2 array using a random comparison function

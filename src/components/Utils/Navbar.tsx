@@ -164,3 +164,33 @@
 //     </Disclosure>
 //   );
 // }
+import React, { useState } from "react";
+import { Layout, Menu, Button, Drawer, Row, Col } from "antd";
+import {
+  HomeOutlined,
+  UserOutlined,
+  SettingOutlined,
+  MenuOutlined,
+} from "@ant-design/icons";
+
+const { Header } = Layout;
+
+const Navbar = () => {
+  const [visible, setVisible] = useState(false);
+
+  const showDrawer = () => {
+    setVisible(true);
+  };
+
+  const onClose = () => {
+    setVisible(false);
+  };
+
+  return (
+    <Layout className="layout">
+   
+    </Layout>
+  );
+};
+
+export default Navbar;

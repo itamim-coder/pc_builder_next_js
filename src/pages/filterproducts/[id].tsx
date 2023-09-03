@@ -80,7 +80,7 @@ export const getStaticPaths = async () => {
   const products = await res.json();
 
   const paths = products?.map((product: { categoryId: any }) => ({
-    params: { id: product.categoryId },
+    params: { id: product?.categoryId },
   }));
   console.log(paths);
   return { paths, fallback: false };
@@ -91,7 +91,7 @@ export async function getStaticProps({ params }) {
 
   // If the route is like /posts/1, then params.id is 1
   const res = await fetch(
-    `https://pc-builder-backend-1fi4.onrender.com/filterproducts/${params.id}`
+    `https://pc-builder-backend-1fi4.onrender.com/filterproducts/${params?.id}`
   );
   const product = await res.json();
   console.log(product);

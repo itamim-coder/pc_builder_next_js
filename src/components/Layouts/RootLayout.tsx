@@ -99,7 +99,7 @@ const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
             >
               <DropDown></DropDown>
               <Menu.Item></Menu.Item>
-              <Menu.Item key="2" icon={<UserOutlined />}>
+              <Menu.Item key="2" >
                 <Link href={"/pc-builder"}>PC Builder</Link>
               </Menu.Item>
               {!session?.user?.email && (
@@ -141,22 +141,19 @@ const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
           visible={visible}
         >
           <Menu mode="vertical" defaultSelectedKeys={["1"]}>
-            <Menu.Item key="1" icon={<HomeOutlined />}>
-              Home
-            </Menu.Item>
-            <Menu.Item key="2" icon={<UserOutlined />}>
+          
+            <Menu.Item key="2">
               <Link href={"/pc-builder"}>PC Builder</Link>
             </Menu.Item>
-            <Menu.Item key="3" icon={<SettingOutlined />}>
-              Settings
-            </Menu.Item>
+        
             <Menu.Item key="4">
               {!session?.user?.email && (
                 <>
                   <Link href={"/login"}>
                     <Button
-                      color="black"
-                      type="primary"
+                      // color="black"
+                      
+                      // type="primary"
                       style={{ marginRight: "10px" }}
                     >
                       Sign in

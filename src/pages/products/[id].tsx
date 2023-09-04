@@ -1,6 +1,7 @@
 import RootLayout from "@/components/Layouts/RootLayout";
 import { Link } from "react-scroll";
 import React, { useState } from "react";
+import Image from "next/image";
 
 const ProductDetails = ({ product }) => {
   const [activeSection, setActiveSection] = useState("description");
@@ -118,7 +119,7 @@ const ProductDetails = ({ product }) => {
                 }}
               >
                 {product?.reviews.map((review) => (
-                  <div>
+                  <div >
                     <div className="flex justify-between">
                       <span className="text-black"> {review.author}</span>
                       <span className="ml-auto flex text-gray-900">
@@ -154,23 +155,36 @@ const ProductDetails = ({ product }) => {
                 </div>
                 <div className="flex border-t border-gray-200 py-2">
                   <span className="text-gray-500">Model</span>
-                  <span className="ml-auto text-gray-900">       {product.keyFeatures.Model}</span>
+                  <span className="ml-auto text-gray-900">
+                    {" "}
+                    {product.keyFeatures.Model}
+                  </span>
                 </div>
                 <div className="flex border-t   border-gray-200 py-2">
                   <span className="text-gray-500">Specification</span>
-                  <span className="ml-auto flex text-gray-900">       {product.keyFeatures.Specification}</span>
+                  <span className="ml-auto flex text-gray-900">
+                    {" "}
+                    {product.keyFeatures.Specification}
+                  </span>
                 </div>
                 <div className="flex border-t  border-gray-200 py-2">
                   <span className="text-gray-500">Port</span>
-                  <span className="ml-auto flex text-gray-900"> {product.keyFeatures.Port}</span>
+                  <span className="ml-auto flex text-gray-900">
+                    {" "}
+                    {product.keyFeatures.Port}
+                  </span>
                 </div>
                 <div className="flex border-t  border-gray-200 py-2">
                   <span className="text-gray-500">Type</span>
-                  <span className="ml-auto flex text-gray-900">{product.keyFeatures.Type}</span>
+                  <span className="ml-auto flex text-gray-900">
+                    {product.keyFeatures.Type}
+                  </span>
                 </div>
                 <div className="flex border-t border-b mb-6 border-gray-200 py-2">
                   <span className="text-gray-500">Voltage</span>
-                  <span className="ml-auto flex text-gray-900">{product.keyFeatures.Voltage}</span>
+                  <span className="ml-auto flex text-gray-900">
+                    {product.keyFeatures.Voltage}
+                  </span>
                 </div>
               </div>
 
@@ -195,7 +209,10 @@ const ProductDetails = ({ product }) => {
                 </button>
               </div>
             </div>
-            <img
+            <Image
+              width={500}
+              height={500}
+              alt=""
               className="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded"
               src={product?.image}
             />
@@ -213,7 +230,9 @@ ProductDetails.getLayout = function getLayout(page: React.ReactNode) {
 };
 
 export const getStaticPaths = async () => {
-  const res = await fetch("https://pc-builder-backend-1fi4.onrender.com/products");
+  const res = await fetch(
+    "https://pc-builder-backend-1fi4.onrender.com/products"
+  );
   const products = await res.json();
 
   const paths = products?.map((product: { _id: any }) => ({

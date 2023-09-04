@@ -2,6 +2,7 @@ import RootLayout from "@/components/Layouts/RootLayout";
 import React from "react";
 import { Card } from "antd";
 import Link from "next/link";
+import Image from "next/image";
 const { Meta } = Card;
 const FilterProducts = ({ product }) => {
   console.log(product);
@@ -14,10 +15,10 @@ const FilterProducts = ({ product }) => {
 
         <div className="grid h-screen gap-4 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 p-4">
           {product?.slice(0, 6)?.map((dt) => (
-            <Link href={`/products/${dt?._id}`}>
+            <Link key={dt?._id} href={`/products/${dt?._id}`}>
               <div className="flex max-w-md overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800">
                 <div className="w-1/3 bg-cover">
-                  <img alt="example" src={dt?.image} />
+                  <Image height={500} width={500} alt="example" src={dt?.image} />
                 </div>
 
                 <div className="w-2/3 p-4 md:p-4">

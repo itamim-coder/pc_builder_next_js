@@ -1,6 +1,6 @@
 import RootLayout from "@/components/Layouts/RootLayout";
 import React from "react";
-import { Card } from "antd";
+import { Card, Image } from "antd";
 import Link from "next/link";
 import { useDispatch } from "react-redux";
 import { addComponent } from "@/redux/Features/pc_builder/pc_builderslice";
@@ -28,7 +28,13 @@ const SelectComponent = ({ components }) => {
                   <div className="flex justify-between ">
                     <div className="flex ">
                       <div>
-                        <img src={component?.image}></img>
+                        <Image
+                          key={component.id}
+                          width={250}
+                          alt="example"
+                          height={250}
+                          src={component?.image}
+                        ></Image>
                       </div>
                       <div>
                         <div>{component.title}</div>
@@ -39,11 +45,14 @@ const SelectComponent = ({ components }) => {
                       </div>
                     </div>
                     {/* <Link href={`/pc-builder/select-component/${component?.id}`}> */}
-                <div>
-                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold px-4 py-2 rounded-full" onClick={() => handleAddComponent(component)}>
-                      ADD
-                    </button>
-                </div>
+                    <div>
+                      <button
+                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold px-4 py-2 rounded-full"
+                        onClick={() => handleAddComponent(component)}
+                      >
+                        ADD
+                      </button>
+                    </div>
                     {/* </Link> */}
                   </div>
                 </Card>

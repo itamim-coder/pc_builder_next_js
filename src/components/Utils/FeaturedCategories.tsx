@@ -1,6 +1,7 @@
 import React from "react";
 import { Card } from "antd";
 import Link from "next/link";
+import Image from "next/image";
 
 interface Category {
   id: number;
@@ -28,7 +29,8 @@ const FeaturedCategories: React.FC<FeaturedCategoriesProps> = ({
                 className="flex justify-center"
                 bordered={false}
               >
-                <img src={category.image} alt="" />
+                <Image  width={500}
+        height={500} src={category.image} alt="" />
                 <p className="text-center mt-3">{category.title}</p>
               </Card>
             </div>

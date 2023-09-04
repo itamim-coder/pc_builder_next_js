@@ -1,6 +1,7 @@
 import React from "react";
 import { Card } from "antd";
 import Link from "next/link";
+import Image from "next/image";
 
 const { Meta } = Card;
 
@@ -46,7 +47,7 @@ const FeaturedProducts: React.FC<FeaturedProductsProps> = ({ products }) => {
       <div className=""></div>
       <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 p-4">
         {products?.slice(0, 6)?.map((product) => (
-          <Link href={`/products/${product?._id}`}>
+          <Link key={product?._id} href={`/products/${product?._id}`}>
             {/* <Card
             hoverable
             style={{ width: 240 }}
@@ -61,7 +62,8 @@ const FeaturedProducts: React.FC<FeaturedProductsProps> = ({ products }) => {
           </Card> */}
             <div className="flex max-w-md overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800">
               <div className="w-1/3 bg-cover">
-                <img alt="example" src={product?.image} />
+                <Image  width={500}
+        height={500} alt="example" src={product?.image} />
               </div>
 
               <div className="w-2/3 p-4 md:p-4">

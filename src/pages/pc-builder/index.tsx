@@ -5,6 +5,7 @@ import Link from "next/link";
 import toast, { Toaster } from "react-hot-toast";
 
 import { useSelector } from "react-redux";
+import Image from "next/image";
 
 const PcBuilderPage = ({ data }) => {
   const selectedComponents = useSelector(
@@ -15,28 +16,40 @@ const PcBuilderPage = ({ data }) => {
   return (
     <div className="">
       <div className="lg:mx-10 mx-5">
-        {data?.map((dt) => (
+        {data?.map((dt, index) => (
           <>
             <div className="mt-5">
               <Card type="inner">
                 <div className="">
                   <div className="grid grid-cols-3 gap-4">
                     <div className="">
-                      <img className="w-10" src={dt.image} alt="" />
+                      <Image
+                        key={dt.id}
+                        width={50}
+                        height={50}
+                        className="w-10"
+                        src={dt.image}
+                        alt="example"
+                      />
                       <p className=" text-sm">{dt.title}</p>
                     </div>
                     <div className=" grid-cols-2">
                       {selectedComponents &&
-                        selectedComponents[dt?.title]?.map((component) => (
-                          <div>
-                            <img
-                              className="w-10"
-                              src={component.image}
-                              alt=""
-                            />
-                            <p className=" text-sm">{component.title}</p>
-                          </div>
-                        ))}
+                        selectedComponents[dt?.title]?.map(
+                          (component, index) => (
+                            <div>
+                              <Image
+                                key={index}
+                                width={50}
+                                height={50}
+                                className="w-10"
+                                src={component.image}
+                                alt="example"
+                              />
+                              <p className=" text-sm">{component.title}</p>
+                            </div>
+                          )
+                        )}
                     </div>
                     <div className="flex justify-end">
                       {!selectedComponents[dt.title] ? (
